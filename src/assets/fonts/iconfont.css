@@ -31,3 +31,10 @@
   content: "\e609";
 }
 
+.icon-menu:before {
+  content: "\e86b";
+}
+
+.icon-shoppingcart:before {
+  content: "\e881";
+}
