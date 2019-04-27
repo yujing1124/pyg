@@ -1,5 +1,5 @@
 <template>
-<div class="cate_continter">
+<div class="cate_container">
     <el-breadcrumb separator-class="el-icon-arrow-right">
   <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
   <el-breadcrumb-item><a href="/">商品管理</a></el-breadcrumb-item>
@@ -34,7 +34,7 @@
     </el-table-column>
     <el-table-column
        label="操作">
-        <template slot-scope = 'scope'>
+        <template slot-scope ='scope'>
         <el-button-group>
         <el-button icon="el-icon-edit" round></el-button>
         <el-button icon="el-icon-delete" round></el-button>
@@ -71,12 +71,12 @@
   </el-cascader>
     </el-form-item>
     <el-form-item label="分类名称" prop="cat_name">
-     <el-input :model="addForm.cat_name" ></el-input> 
+     <el-input v-model="addForm.cat_name" ></el-input> 
     </el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
     <el-button @click='addDialogFormVisible = false'>取 消</el-button>
-    <el-button type="primary" @click='addDialogFormVisible = false'>确 定</el-button>
+    <el-button type="primary" @click='addSubmit()'>确 定</el-button>
   </div>
 </el-dialog>
 </div>

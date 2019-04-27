@@ -31,6 +31,20 @@ export default {
   methods: {
     handleChange () {
     },
+    addSubmit () {
+    /* 提交前做校验 */
+    /*  this.$refs.addForm.validata(async valid => {
+        if (valid) {
+          const len = this.catgoryValues.length
+          if (len) {
+            this.addForm.cat_pid = this.categoryValues[len - 1]
+          } else {
+            this.addForm.cat_pid = 0
+          }
+          this.addForm.cat_level = len
+        }
+      }) */
+    },
     /* 显示添加对话框 */
     async showAddDialog () {
       /* 动态渲染 获取数据 */
