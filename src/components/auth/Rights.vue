@@ -9,12 +9,19 @@
 <!-- 列表 -->
 <el-card>
     <el-table
+    height="400px"
     :data="rightList"
     style="width: 100%">
     <el-table-column type="index"> </el-table-column>
-    <el-table-column property="date"  label="权限名称"> </el-table-column>
-    <el-table-column property="date"  label="路径"> </el-table-column>
-    <el-table-column property="date"  label="权限等级"> </el-table-column>
+    <el-table-column property="authName" label="权限名称"> </el-table-column>
+    <el-table-column property="path"  label="路径"> </el-table-column>
+    <el-table-column property="address"  label="权限等级"> 
+    <template slot-scope='scope'>
+        <el-tag v-if="scope.row.level==='0'">一级权限</el-tag>
+        <el-tag v-if="scope.row.level==='1'" type="success">二级权限</el-tag>
+        <el-tag v-if="scope.row.level==='2'" type="warning">三级权限</el-tag>
+    </template>
+    </el-table-column>
     </el-table>
 </el-card>
 

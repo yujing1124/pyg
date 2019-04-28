@@ -37,7 +37,7 @@
         <template slot-scope ='scope'>
         <el-button-group>
         <el-button icon="el-icon-edit" round></el-button>
-        <el-button icon="el-icon-delete" round></el-button>
+        <el-button icon="el-icon-delete" @click="delCategory(scope.row.cat_id)" round></el-button>
         </el-button-group>
       </template>
     </el-table-column>

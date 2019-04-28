@@ -29,6 +29,19 @@ export default {
     this.getData()
   },
   methods: {
+    /* 删除数据 */
+    delCategory (id) {
+      this.$confirm('是否删除该分类?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(async () => {
+        const { data: { meta } } = await this.$http.delete(`categories/${id}`)
+        if (meta.status !== 200) return this.$message.error('删除失败')
+        this.$message.success('删除成功')
+        this.getData()
+      }).catch(() => { })
+    },
     handleChange () {
     },
     addSubmit () {
