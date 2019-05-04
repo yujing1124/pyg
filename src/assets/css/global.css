@@ -16,3 +16,6 @@ body{
     margin-top: 15px;
     text-align: right;
 }
+.el-step__title{
+    font-size: 12px;
+  }

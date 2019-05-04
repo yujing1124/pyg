@@ -36,7 +36,7 @@
        label="操作">
         <template slot-scope ='scope'>
         <el-button-group>
-        <el-button icon="el-icon-edit" round></el-button>
+        <el-button icon="el-icon-edit" @click="showEditDialog(scope.row.cat_id)" round></el-button>
         <el-button icon="el-icon-delete" @click="delCategory(scope.row.cat_id)" round></el-button>
         </el-button-group>
       </template>
@@ -57,17 +57,17 @@
 <!-- 添加分类对话框 -->
 <el-dialog title="添加分类"  width="400px"
 :visible.sync="addDialogFormVisible">
-  <el-form :model="addForm" :rules='addRules' label-width="100px" autocomplete="off">
+  <el-form ref="addForm"  :model="addForm" :rules='addRules' label-width="100px" autocomplete="off">
     <el-form-item label="父级分类">
       <!-- options是指定选项的数据 -->
         <el-cascader
+        clearable
         style="width:100%"
         :props="{value:'cat_id',label:'cat_name'}"
         expand-trigger="hover"
         :change-on-select="true"
         :options="catgoryList"
-        v-model="catgoryValues"
-        @change="handleChange">
+        v-model="catgoryValues">
   </el-cascader>
     </el-form-item>
     <el-form-item label="分类名称" prop="cat_name">
@@ -77,6 +77,19 @@
   <div slot="footer" class="dialog-footer">
     <el-button @click='addDialogFormVisible = false'>取 消</el-button>
     <el-button type="primary" @click='addSubmit()'>确 定</el-button>
+  </div>
+</el-dialog>
+<!-- 编辑分类对话框 -->
+<el-dialog title="编辑分类"  width="400px"
+:visible.sync="editDialogFormVisible">
+  <el-form ref="editForm"  :model="editForm" :rules='editRules' label-width="100px" autocomplete="off">
+    <el-form-item label="分类名称" prop="cat_name">
+     <el-input v-model="editForm.cat_name" ></el-input> 
+    </el-form-item>
+  </el-form>
+  <div slot="footer" class="dialog-footer">
+    <el-button @click='editDialogFormVisible = false'>取 消</el-button>
+    <el-button type="primary" @click='editSubmit()'>确 定</el-button>
   </div>
 </el-dialog>
 </div>
